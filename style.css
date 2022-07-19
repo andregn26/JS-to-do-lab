@@ -1,0 +1,27 @@
+body {
+  font-family: sans-serif;
+  background-color: azure;
+}
+#app {
+  display: flex;
+  margin: 3.125rem 0;
+  border: 3px blue solid;
+}
+.container-main {
+  border: 0.625rem green solid;
+  border-radius: 0.625rem;
+  background-color: #fff;
+  width: 80vw;
+  height: 70vh;
+  margin: auto;
+  padding: 0 5%;
+}
+
+#addNew {
+  background-color: green;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 1.25rem;
+  cursor: pointer;
+}
