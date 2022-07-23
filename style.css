@@ -1,42 +1,70 @@
 body {
   font-family: sans-serif;
-  background-color: #ffddd2;
+  background-color: #f8f9fa;
 }
 #app {
-  display: flex;
+  /* display: flex; */
   margin: 3.125rem 0;
 }
-.container-main {
-  border: 0.625rem #006d7763 solid;
-  border-radius: 0.625rem;
-  background-color: #edf6f9;
+
+.flex {
+  display: flex;
+  flex-direction: column;
+}
+
+#header {
   width: 80vw;
-  min-height: 70vh;
   margin: auto;
+}
+
+.container-main {
+  border: 0.625rem #2d6a4f solid;
+  border-radius: 0.625rem;
+  background-color: #d8f3dc;
+  width: 80vw;
+  max-height: 60vh;
+  margin: 1.25rem auto;
   padding: 2% 5%;
+  overflow-y: scroll;
+  box-shadow: 0px 3px 8px 2px rgba(0, 0, 0, 0.37);
+}
+
+.container-main::-webkit-scrollbar {
+  width: 0 !important;
 }
 
 @media screen and (min-width: 600px) {
   .container-main {
-    width: 50vw;
+    width: 65vw;
+  }
+  #header {
+    width: 65vw;
   }
 }
 
 #addNew {
-  background-color: #91c0c6;
+  background-color: #74c69d;
   border-radius: 0.3125rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1rem 1.25rem;
+  padding: 0.625rem 1.25rem;
   cursor: pointer;
+  box-shadow: 0px 3px 8px 2px rgba(0, 0, 0, 0.37);
+}
+
+#addNew > i {
+  background-color: #2d6a4f;
+  padding: 5px;
+  border-radius: 5px;
 }
 
 #tasks > div {
-  background-color: #91c0c6;
+  background-color: #74c69d;
   border-radius: 0.3125rem;
-  border: 1px solid red;
+  /* border: 1px solid red; */
   margin: 1rem 0;
+  box-shadow: 0px 3px 8px 2px rgba(0, 0, 0, 0.5);
 }
 
 .card-container-header {

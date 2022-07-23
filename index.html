@@ -22,13 +22,15 @@
   </head>
   <body>
     <div id="app">
-      <div class="container-main">
+      <div id="header" class="flex">
         <h4 class="h4 mb-3">TODO App</h4>
         <div id="addNew" data-bs-toggle="modal" data-bs-target="#form">
           <span>Add New Task</span>
           <i class="fa-solid fa-plus"></i>
         </div>
+      </div>
 
+      <div class="container-main">
         <h5 class="h5 text-center my-3">Tasks</h5>
 
         <!-- Modal ----------------------------------------------------------->
@@ -61,12 +63,17 @@
                 <div id="msg"></div>
                 <br />
                 <p>Due date</p>
-                <input type="date" name="" id="" class="form-control" />
+                <input
+                  type="date"
+                  name=""
+                  id="dateInput"
+                  class="form-control"
+                />
                 <br />
                 <p>Description</p>
                 <textarea
                   name=""
-                  id=""
+                  id="descriptionInput"
                   cols="30"
                   rows="10"
                   class="form-control"
@@ -80,7 +87,9 @@
                 >
                   Close
                 </button>
-                <button type="submit" class="btn btn-primary">Add</button>
+                <button type="submit" id="addButton" class="btn btn-primary">
+                  Add
+                </button>
               </div>
             </div>
           </div>
@@ -94,19 +103,29 @@
             </div>
             <p>going to gym</p>
             <span class="options">
-              <i class="fa-solid fa-pen-to-square"></i>
-              <i class="fa-solid fa-trash-can"></i>
+              <i
+                onclick="editTask(this)"
+                data-bs-toggle="modal"
+                data-bs-target="#form"
+                class="fa-solid fa-pen-to-square"
+              ></i>
+              <i onclick="deleteTask(this)" class="fa-solid fa-trash-can"></i>
             </span>
           </div>
-          <div>
+          <div class="card-container">
             <div class="card-container-header">
               <span class="fw-bold">task2</span>
               <span class="smal text-secondary">2022-1-20</span>
             </div>
             <p>going to gym</p>
             <span class="options">
-              <i class="fa-solid fa-pen-to-square"></i>
-              <i class="fa-solid fa-trash-can"></i>
+              <i
+                onclick="editTask(this)"
+                data-bs-toggle="modal"
+                data-bs-target="#form"
+                class="fa-solid fa-pen-to-square"
+              ></i>
+              <i onclick="deleteTask(this)" class="fa-solid fa-trash-can"></i>
             </span>
           </div>
         </div>
