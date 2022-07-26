@@ -40,21 +40,28 @@ let acceptData = () => {
 }
 
 let createTasks = () => {
-  tasks.innerHTML += `<div class="card-container">
-            <div class="card-container-header">
-              <span class="fw-bold">${textInput.value}</span>
-              <span class="smal text-secondary">${dateInput.value}</span>
+  tasks.innerHTML = ""
+  data.map((x, y) => {
+    return (tasks.innerHTML += `<div id="${y}" class="card-container">
+            <div  class="card-container-header">
+              <span class="fw-bold">${x.task}</span>
+              <span class="smal text-secondary">${x.date}</span>
             </div>
-            <p>${descriptionInput.value}</p>
+            <p>${x.description}</p>
             <span class="options">
               <i onClick= "editTask(this)" data-bs-toggle="modal" data-bs-target="#form" class="fa-solid fa-pen-to-square"></i>
-              <i onClick = "deleteTask(this)" class="fa-solid fa-trash-can"></i>
+              <i onClick = "deleteTask(this); createTasks()" class="fa-solid fa-trash-can"></i>
             </span>
-          </div>`
+          </div>`)
+  })
   resetForm()
 }
+
 let deleteTask = (e) => {
   e.parentElement.parentElement.remove()
+  data.splice(e.parentElement.parentElement.id, 1)
+  localStorage.setItem("data", JSON.stringify(data))
+  console.log("This is my console log ==> ", data)
 }
 
 let editTask = (e) => {
@@ -62,7 +69,7 @@ let editTask = (e) => {
   textInput.value = selectedTask.children[0].children[0].innerHTML
   dateInput.value = selectedTask.children[0].children[1].innerHTML
   descriptionInput.value = selectedTask.children[1].innerHTML
-  selectedTask.remove()
+  deleteTask(e)
 }
 
 let resetForm = () => {
@@ -70,3 +77,9 @@ let resetForm = () => {
   dateInput.value = ""
   descriptionInput.value = ""
 }
+
+;(() => {
+  data = JSON.parse(localStorage.getItem("data")) || []
+  createTasks()
+  console.log(data)
+})()
